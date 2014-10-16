@@ -2,5 +2,14 @@
 
 set -ex
 
-rake
+export BUILD_DIR=$1
+export CACHE_DIR=$2
+
+mkdir -p $CACHE_DIR
+
+cd $BUILD_DIR
+mkdir -p build
+cd build
+cmake ..
+make
 
