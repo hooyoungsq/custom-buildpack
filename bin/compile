@@ -19,3 +19,8 @@ cd build
 cmake ..
 make
 
+mkdir -p $BUILD_DIR/.profile.d
+cat <<EOF >$BUILD_DIR/.profile.d/001_custom.sh
+export LD_LIBRARY_PATH=\$(find \$HOME/.apt/usr/lib -type d | tr \\\\n :)":\$LD_LIBRARY_PATH"
+EOF
+
